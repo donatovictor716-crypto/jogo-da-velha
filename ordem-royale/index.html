@@ -2,33 +2,63 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#08090d">
-<title>Ritual Royale</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<meta name="theme-color" content="#07070b">
+<title>Ritual Royale — Duelo Paranormal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <main class="game">
-  <header class="top">
-    <div><span class="sigil">☠</span><div><b>RITUAL ROYALE</b><small>Duelo Paranormal</small></div></div>
-    <div class="timer" id="timer">03:00</div>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark">✦</div>
+      <div><strong>RITUAL ROYALE</strong><small>DUELo PARANORMAL</small></div>
+    </div>
+    <div class="match-info">
+      <span class="round">RITUAL <b id="round">01</b></span>
+      <span class="timer" id="timer">03:00</span>
+    </div>
   </header>
 
+  <section class="scorebar">
+    <div class="score player-score"><span>VOCÊ</span><b id="playerCrown">0</b></div>
+    <div class="versus">VS</div>
+    <div class="score enemy-score"><b id="enemyCrown">0</b><span>PARANORMAL</span></div>
+  </section>
+
   <section class="arena" id="arena">
-    <div class="energy"><span>ENERGIA</span><strong id="energy">5</strong><i></i></div>
-    <div class="tower enemy left" data-hp="100"><span>TORRE</span><b>100</b></div>
-    <div class="tower enemy right" data-hp="100"><span>TORRE</span><b>100</b></div>
-    <div class="tower player left" data-hp="100"><span>TORRE</span><b>100</b></div>
-    <div class="tower player right" data-hp="100"><span>TORRE</span><b>100</b></div>
-    <div class="midline"></div>
+    <div class="fog fog-a"></div><div class="fog fog-b"></div>
+    <div class="river"><span>VÉU</span></div>
+    <div class="bridge bridge-left"></div><div class="bridge bridge-right"></div>
+
+    <div class="tower enemy left" data-lane="0"><span>TORRE</span><strong>160</strong><i><em></em></i></div>
+    <div class="tower enemy right" data-lane="1"><span>TORRE</span><strong>160</strong><i><em></em></i></div>
+    <div class="tower player left" data-lane="0"><span>TORRE</span><strong>160</strong><i><em></em></i></div>
+    <div class="tower player right" data-lane="1"><span>TORRE</span><strong>160</strong><i><em></em></i></div>
+
+    <div class="deployment player-zone" id="playerZone">
+      <span>TOQUE EM UMA LANE PARA INVOCAR</span>
+      <button data-lane="0">LANE ESQUERDA</button>
+      <button data-lane="1">LANE DIREITA</button>
+    </div>
+
     <div id="units"></div>
     <div id="effects"></div>
   </section>
 
-  <div class="message" id="message">Escolha uma carta para invocar.</div>
+  <section class="energy-panel">
+    <div class="energy-label"><span>ENERGIA</span><strong id="energy">5</strong><small>/10</small></div>
+    <div class="energy-track"><i id="energyFill"></i></div>
+    <div class="tip" id="message">Escolha uma carta e uma lane.</div>
+  </section>
 
-  <section class="hand" id="hand"></section>
-  <button class="reset" id="reset">Novo duelo</button>
+  <section class="hand-wrap">
+    <div class="hand-head"><b>SEU ARSENAL</b><small>Escolha uma carta</small></div>
+    <section class="hand" id="hand"></section>
+  </section>
+
+  <button class="reset" id="reset">⟳ NOVO DUELO</button>
 </main>
 <script src="script.js"></script>
 </body>
